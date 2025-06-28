@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CMA CGM Tracking Portal</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f6fa;
+      margin: 0;
+      padding: 0;
+      color: #003366;
+    }
+    @media print {
+      header, .tracking-form, .download-button, iframe, footer {
+        display: none !important;
+      }
+      body {
+        background: white;
+        color: black;
+      }
+      .details {
+        display: block !important;
+      }
+    }
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    header img {
+      height: 50px;
+      margin-right: 1rem;
+    }
+    main {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    }
+    .tracking-form {
+      background: #f9fbfd;
+      padding: 1.5rem;
+      border-radius: 8px;
+      border: 1px solid #dce3ec;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 0.75rem;
+      margin: 1rem 0;
+      border: 1px solid #bbb;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    button {
+      background-color: #003366;
+      color: white;
+      padding: 0.6rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #002244;
+    }
+    .details {
+      margin-top: 2rem;
+      display: none;
+    }
+    .progress {
+      margin-top: 1rem;
+      background: #e0e0e0;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .progress-bar {
+      background: #003366;
+      height: 22px;
+      width: 60%;
+      text-align: center;
+      color: white;
+      font-weight: bold;
+      font-size: 13px;
+      line-height: 22px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.5rem;
+    }
+    table, th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #003366;
+      color: white;
+      font-size: 1rem;
+    }
+    td {
+      font-size: 0.95rem;
+    }
+    .download-button {
+      margin-top: 1.5rem;
+    }
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: #003366;
+      color: white;
+      margin-top: 3rem;
+      font-weight: bold;
+    }
+    iframe {
+      width: 100%;
+      height: 400px;
+      margin-top: 2rem;
+      border: none;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div style="display: flex; align-items: center;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/CMA_CGM_logo.svg/512px-CMA_CGM_logo.svg.png" alt="CMA CGM Logo" />
+      <h1>CMA CGM</h1>
+    </div>
+    <p>Tracking Portal</p>
+  </header>
+
+  <main>
+    <div class="tracking-form">
+      <label for="track">Enter Tracking Code:</label>
+      <input type="text" id="track" placeholder="e.g., CMA123456789MX" />
+      <button onclick="trackPackage()">Track</button>
+    </div>
+
+    <div class="details" id="details">
+      <h2>Shipment Details</h2>
+
+      <h3>Sender & Receiver Information</h3>
+      <table>
+        <tr><th colspan="2">Sender Details</th><th colspan="2">Receiver Details</th></tr>
+        <tr><td>Name</td><td>Gabriel Ju</td><td>Name</td><td>Martinez Gonzalez</td></tr>
+        <tr><td>Country</td><td>Yemen Afghanistan</td><td>Phone</td><td>+52 639 106 3064</td></tr>
+        <tr><td>Email</td><td>N/A</td><td>Email</td><td>jimzmtzgp@gmail.com</td></tr>
+        <tr><td colspan="2"></td><td>Address</td><td>Camargo Street, s/n, Las Varas Extension, Saucillo, Chihuahua, Mexico</td></tr>
+      </table>
+
+      <h3>Package Information</h3>
+      <table>
+        <tr><th>Weight</th><th>Destination</th><th>Mode</th><th>Delivery Date</th></tr>
+        <tr><td>10 kg</td><td>Mexico</td><td>Freight</td><td>30 June 2025</td></tr>
+      </table>
+
+      <div class="progress">
+        <div class="progress-bar">At Customs (60%)</div>
+      </div>
+
+      <div class="download-button">
+        <button onclick="window.print()">Print Page</button>
+      </div>
+
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.1036580714417!2d-106.46516402587498!3d28.341776997217762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e75b8ed0e26d6d%3A0x1e6f80b55ff56a6!2sCamargo%20Street%2C%20Las%20Varas%20Extension%2C%20Saucillo%2C%20Chihuahua%2C%20Mexico!5e0!3m2!1sen!2sng!4v1719562345678" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </main>
+
+  <footer>
+    <p>THANKS FOR USING CMA-CGM</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script>
+    async function downloadPDF() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+
+      const logo = new Image();
+      logo.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/CMA_CGM_logo.svg/512px-CMA_CGM_logo.svg.png";
+      logo.onload = () => {
+        doc.addImage(logo, 'PNG', 80, 10, 50, 20);
+
+        doc.setFontSize(16);
+        doc.setFont("helvetica", "bold");
+        doc.text("Official Shipment Invoice", 105, 40, null, null, "center");
+
+        doc.setFontSize(12);
+        doc.setFont("helvetica", "normal");
+        let y = 60;
+
+        doc.text("Sender:", 20, y);
+        doc.text("Gabriel Ju", 60, y);
+        y += 7;
+        doc.text("Country:", 20, y);
+        doc.text("Yemen Afghanistan", 60, y);
+        y += 10;
+
+        doc.text("Receiver:", 20, y);
+        doc.text("Martinez Gonzalez", 60, y);
+        y += 7;
+        doc.text("Phone:", 20, y);
+        doc.text("+52 639 106 3064", 60, y);
+        y += 7;
+        doc.text("Email:", 20, y);
+        doc.text("jimzmtzgp@gmail.com", 60, y);
+        y += 7;
+        doc.text("Address:", 20, y);
+        doc.text("Camargo Street, s/n, Las Varas Extension, Saucillo, Chihuahua, Mexico", 60, y);
+        y += 20;
+
+        doc.setFont("helvetica", "bold");
+        doc.text("Package Information:", 20, y);
+        y += 7;
+        doc.setFont("helvetica", "normal");
+        doc.text("Weight:", 20, y);
+        doc.text("10 kg", 60, y);
+        y += 7;
+        doc.text("Destination:", 20, y);
+        doc.text("Mexico", 60, y);
+        y += 7;
+        doc.text("Mode:", 20, y);
+        doc.text("Freight", 60, y);
+        y += 7;
+        doc.text("Delivery Date:", 20, y);
+        doc.text("30 June 2025", 60, y);
+        y += 10;
+
+        doc.setFont("helvetica", "bold");
+        doc.text("Status:", 20, y);
+        doc.setFont("helvetica", "normal");
+        doc.text("At Customs (60%)", 60, y);
+        y += 20;
+
+        doc.setFont("helvetica", "italic");
+        doc.text("THANK YOU FOR USING CMA CGM", 105, y, null, null, "center");
+
+        doc.save("CMA_CGM_Invoice.pdf");
+      };
+    }
+
+    function trackPackage() {
+      const code = document.getElementById("track").value.trim();
+      if (code === "CMA123456789MX") {
+        document.getElementById("details").style.display = "block";
+      } else {
+        alert("Tracking code not found. Please try again.");
+      }
+    }
+
+    window.onload = () => {
+      const pdfBtn = document.createElement("button");
+      pdfBtn.innerText = "Download PDF Invoice";
+      pdfBtn.style.marginLeft = "1rem";
+      pdfBtn.onclick = downloadPDF;
+      const container = document.querySelector(".download-button");
+      if (container) container.appendChild(pdfBtn);
+    };
+  </script>
+</body>
+</html>
